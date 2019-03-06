@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>vue入门订单</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<!-- 在vue中，这称为挂载点-->
+	<div id="root">
+		<!-- 挂载点内部的称为模板 -->
+		<!-- 模板可以直接写在挂载点这里，更常见的是写在vue实例的template-->
+	</div>
+<script type="text/javascript">
+	// 创建一个vue对象
+	// 在vue中，最核心的概念就是数据的绑定
+	// el:element的意思，绑定哪个元素
+	// 通过data赋值，在元素上会进行双向绑定
+	new Vue({
+		el : "#root",
+		template : "<h2>Hello {{msg}}</h2>", 
+		data : {
+			msg : "Yunsheng!"
+		}
+	});
+	// vue实际上就是一种html解析引擎，根据语法规则，生成最终需要的html文件
+</script>
+</body>
+</html>
