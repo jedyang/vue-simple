@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>vue入门</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<!-- 演示属性绑定-->
+		<!-- 使用了v-bind指令，=号后面跟的是js表达式 -->
+		<!-- 里面的这个title指向的是vue实例中data的数据 -->
+		<!-- <div v-bind:title="'this is ' + title">双向绑定</div> -->
+		<!-- v-bind:可以直接简写成： -->
+		<div :title="'this is ' + title">双向绑定</div>
+
+		<!-- 演示双向数据绑定 -->
+		<!-- 使用v-model进行双向绑定，input中的数据修改，div显示的数据也会更新 -->
+		<input v-model="content">
+		<div v-text="content"></div>
+
+	</div>
+<script type="text/javascript">
+	new Vue({
+		el : "#root",
+		data : {
+			title : "hello",
+			content : "this is content"
+		}
+	});
+</script>
+</body>
+</html>

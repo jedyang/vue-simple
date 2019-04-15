@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>vue入门订单</title>
+	<title>vue入门</title>
 	<script src="./vue.js"></script>
 </head>
 <body>
@@ -10,6 +10,10 @@
 	<div id="root">
 		<!-- 挂载点内部的称为模板 -->
 		<!-- 模板可以直接写在挂载点这里，更常见的是写在vue实例的template-->
+		<!-- v-on,v-html,v-text等都是vue的指令 -->
+		<!-- <div v-on:click="handleClick">{{msg}}</div> -->
+		<!-- @是v-on: 的一种简写形式-->
+		<div @click="handleClick">{{msg}}</div>
 	</div>
 <script type="text/javascript">
 	// 创建一个vue对象
@@ -18,9 +22,15 @@
 	// 通过data赋值，在元素上会进行双向绑定
 	new Vue({
 		el : "#root",
-		template : "<h2>Hello {{msg}}</h2>", 
+		// template : "<h2>Hello {{msg}}</h2>", 
 		data : {
-			msg : "Yunsheng!"
+			msg : "Hi!"
+		},
+		methods: {
+			handleClick: function(){
+				// alert("this is alert");
+				this.msg = "Hello"
+			}
 		}
 	});
 	// vue实际上就是一种html解析引擎，根据语法规则，生成最终需要的html文件
