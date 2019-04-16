@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>常用指令</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<!-- 使用v-if可以根据data控制元素是否存在 -->
+		<!-- v-if的值为false时，整个div是不存在的，不只是隐藏掉 -->
+		<div v-if="show">hello world</div>
+		<!-- v-show的话，只是给元素加了display:none的css属性。隐藏掉。这是二者的区别 -->
+		<div v-show="show">hello world</div>
+		<button @click="handleClick">切换</button>
+
+		<!-- v-for进行循环 -->
+		<ul>		
+			<li v-for="item of mylist">{{item}}</li>
+		</ul>
+	</div>
+<script type="text/javascript">
+	new Vue({
+		el : "#root",
+		data : {
+			"show" : true,
+			"mylist" : ["book","car","house"],
+		},
+		methods : {
+			handleClick : function(){
+				this.show = !this.show;
+			}
+		}
+	
+	});
+</script>
+</body>
+</html>

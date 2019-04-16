@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>父子组件间通信</title>
+	<script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+	
+	<div id="root">
+		<input v-model="inputValue">
+		<button @click="handleClick">提交</button>
+		<ul>
+			<!-- 父组件通过属性向子组件传参 -->
+			<!-- 父组件通过@或者v-on:指令监听子组件抛出的delete事件） -->
+			<todo-item 
+				v-for="(item, index) of itemList" 
+				:key="index" 
+				:mycontent="item"
+			    :index="index"
+			    @delete="handleDel">
+			</todo-item>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		
+		Vue.component('todo-item', {
+			// 通过props绑定自定义的参数，进行传参
+			props : ['mycontent', 'index'],
+			template : "<li @click='onClick'>{{mycontent}}</li>",
+			methods : {
+				"onClick": function(){
+					// 通过this.$emit向外发射一个delete事件
+					// 参数就是传进来的index。在函数中获取index，需要写成this.index
+					this.$emit('delete', this.index);
+				}
+			}
+		});
+
+
+
+		new Vue({
+			el : "#root",
+			data : {
+				"inputValue" : '',
+				"itemList" : [],
+				"index" : 0
+			},
+			methods : {
+				"handleClick" : function(){
+					this.itemList.push(this.inputValue);
+					this.inputValue = '';
+				},
+				"handleDel" : function(index){
+					this.itemList.splice(index, 1);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

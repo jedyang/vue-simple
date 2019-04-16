@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>todoList-组件拆分</title>
+	<script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+	<!-- 组件化是现在前端开发中的重要概念 -->
+	<!-- 将重复出现的多个元素，组合成一个组件 -->
+	<!-- 这里假设以后的ul会非常复杂，演示ul的组件化 -->
+	<div id="root">
+		<input v-model="inputValue">
+		<button @click="handleClick">提交</button>
+		<ul>
+			<!-- 自定义一个mycontent参数用来传参 -->
+			<todo-item 
+				v-for="(item, index) of itemList" 
+				:key="index" 
+				:mycontent="item">
+			</todo-item>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		// Vue实例与组件的关系：
+		// 每个vue组件，本身也是一个vue实例。
+		// 所以在这个例子中是外层一个大的Vue实例，里面又用到了组件形式的vue实例
+		// 所以可以说每个vue项目都是由千千万万个vue实例组成的
+
+		// 进一步说，其实vue实例就是一个vue组件，一个vue组件也是一个vue实例。二者是一样的。
+		// 在vue组件中，也可以写methods，data等属性
+		// 每一个vue实例（或者说组件）都应该有一个template属性，都需要一个模板
+		// 但是最外层的Vue实例，并没有写template。其实这个最外层Vue实例使用的template
+		// 就是el挂载点。
+
+
+		// Vue.component是Vue提供的创建组件的方法
+		// 通过Vue.component这样创建的组件叫全局组件
+		// 全局组件创建出来之后，在页面上可以直接使用
+		Vue.component('todo-item', {
+			// 通过props绑定自定义的参数，进行传参
+			props : ['mycontent'],
+			template : "<li>{{mycontent}}</li>"
+		});
+
+
+		// 这种创建的是局部组件
+		// 需要到vue实例中做下注册声明，才可使用
+		// var TodoItem = {
+		// 	template : "<li>222</li>"
+		// }
+
+
+		new Vue({
+			el : "#root",
+			// components: {
+			// 	'todo-item' : TodoItem
+			// },
+			data : {
+				"inputValue" : '',
+				"itemList" : []
+			},
+			methods : {
+				"handleClick" : function(){
+					this.itemList.push(this.inputValue);
+					this.inputValue = '';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
