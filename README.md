@@ -37,3 +37,21 @@ v-show的话，只是给元素加了display:none的css属性。隐藏掉。这�
 在浏览器的console中，直接回车就是执行了    
 要想不执行，用shift+回车  
 
+## vue-cli创建项目
+1. vue create xx-xx
+2. vue ui : 通过ui界面创建项目
+
+## nvm
+安装nvm：注意windows需要先把之前安装的node卸载干净  
+### 优化
+加速：配置淘宝镜像源
+打开nvm安装的根目录（C:\Users\hello\AppData\Roaming\nvm）“settings.txt”文件，在最后面追加下面两行：
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+
+nvm list : 查看本地安装的node版本列表
+nvm list avaliable :可查看远端可安装的列表
+nvm install 8.16.0 安装8.16.0版本的node
+
+
+
