@@ -45,13 +45,35 @@ v-show的话，只是给元素加了display:none的css属性。隐藏掉。这�
 安装nvm：注意windows需要先把之前安装的node卸载干净  
 ### 优化
 加速：配置淘宝镜像源
-打开nvm安装的根目录（C:\Users\hello\AppData\Roaming\nvm）“settings.txt”文件，在最后面追加下面两行：
-node_mirror: https://npm.taobao.org/mirrors/node/
-npm_mirror: https://npm.taobao.org/mirrors/npm/
+打开nvm安装的根目录（我的是C:\Users\hello\AppData\Roaming\nvm）下“settings.txt”文件，在最后面追加下面两行：  
+node_mirror: https://npm.taobao.org/mirrors/node/  
+npm_mirror: https://npm.taobao.org/mirrors/npm/  
 
-nvm list : 查看本地安装的node版本列表
-nvm list avaliable :可查看远端可安装的列表
-nvm install 8.16.0 安装8.16.0版本的node
+nvm list : 查看本地安装的node版本列表  
+nvm list avaliable :可查看远端可安装的列表  
+nvm install 8.16.0 安装8.16.0版本的node    
+nvm use 8.16.0 安装时候还需要使用    
+ 
+之后可以使用node --version和npm --version检查安装是否成功  
+
+## cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+## vue-router
+路由管理  
+router-link 连接到 router.js  
+在router.js中指向真正的页面  
+
+## vuex
+单向数据流：view --> actions --> state -->view  
+vuex用来集中管理组件状态  
+
+store.js  
+state:状态   
+mutations：唯一能改变状态的方法集  
+
+
+
 
 
 
