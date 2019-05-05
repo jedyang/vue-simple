@@ -78,6 +78,15 @@ store.js
 state:状态   
 mutations：唯一能改变状态的方法集  
 
+### vuex的使用 
+在store.js的state中定义要在组件间共享的变量。在mutations中定义方法  
+// 引入store组件，@表示的就是src目录  
+import store from '@/store'   
+通过store.commit('xx方法') 改变状态  
+通过store.state.xxx得到状态  
+
+
+
 
 
 
