@@ -61,6 +61,9 @@ nvm use 8.16.0 安装时候还需要使用
 ## cnpm
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+## 安装vue-cli
+npm install -g @vue/cli
+
 ## vue-cli创建项目
 1. vue create xx-xx
 2. vue ui : 通过ui界面创建项目
